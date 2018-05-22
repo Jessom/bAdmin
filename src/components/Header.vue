@@ -1,6 +1,8 @@
 <template>
-  <el-header>
-    <el-menu
+  <el-header
+    class='header-container'>
+    <!-- 菜单 -->
+    <!-- <el-menu
       :default-active="activeIndex"
       class="hm"
       mode="horizontal"
@@ -23,7 +25,20 @@
       </el-submenu>
       <el-menu-item index="3" disabled>消息中心</el-menu-item>
       <el-menu-item index="4">订单管理</el-menu-item>
-    </el-menu>
+    </el-menu>  -->   <!-- 菜单 -->
+
+    <!-- 登录人 -->
+    <el-dropdown
+      trigger="click"
+      class='menu-right'>
+      <span class="el-dropdown-link">
+        <img class="avatar" src="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=2697783222,3717756653&fm=27&gp=0.jpg" alt="">
+      </span>
+      <el-dropdown-menu slot="dropdown">
+        <el-dropdown-item>Dashboard</el-dropdown-item>
+        <el-dropdown-item>退出</el-dropdown-item>
+      </el-dropdown-menu>
+    </el-dropdown>    <!-- 登录人 -->
   </el-header>
 </template>
 
@@ -44,10 +59,33 @@ export default {
 </script>
 
 <style lang='scss'>
-.el-header{
-  padding: 0;
-}
-.hm.el-menu--horizontal {
-  border-bottom: 0;
+@import 'static/scss/_variable.scss';
+$avatarS: 45px;
+.header-container {
+  background-color: $baseColor;
+  .el-header{
+    padding: 0;
+  }
+  .hm.el-menu--horizontal {
+    border-bottom: 0;
+    float: left;
+  }
+  /*登录者*/
+  .menu-right {
+    float: right;
+    height: 60px;
+    line-height: 55px;
+    .el-dropdown-link {
+      cursor: pointer;
+    }
+    .avatar {
+      width: $avatarS;
+      height: $avatarS;
+      vertical-align: middle;
+      border-radius: 50%;
+      border: 2px solid #fff;
+      background-color: #fff;
+    }
+  }
 }
 </style>

@@ -4,11 +4,11 @@
 		<el-container>
 			<v-header />
 			<el-main>
-				<transition name="el-fade-in-linear">
+				<el-collapse-transition>
 					<keep-alive>
 						<router-view></router-view>
 					</keep-alive>
-				</transition>
+				</el-collapse-transition>
 			</el-main>
 			<el-footer style='border-top: 1px solid #E4E7ED;height:62px;'>
 				<v-footer />
@@ -22,8 +22,8 @@ import vHeader from '@/components/Header.vue'
 import SideBar from '@/components/SideBar.vue'
 import vFooter from '@/components/Footer.vue'
 export default {
-	name: 'Index',
-	components: {
+  name: 'App',
+  components: {
 		vHeader,
 		SideBar,
 		vFooter
@@ -32,4 +32,11 @@ export default {
 </script>
 
 <style>
+.el-main {
+	height: calc(100vh - 60px - 62px);
+	overflow-y: auto;
+	&::-webkit-scrollbar {
+    display: none;
+  }
+}
 </style>
