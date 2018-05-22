@@ -1,4 +1,5 @@
 <p align="center"><a href="http://watasi.cn" target="_blank" rel="noopener noreferrer"><img src="http://p94agf1t4.bkt.clouddn.com/images/logo.png" alt="Watasi logo"></a></p>
+
 ## Build Setup
 ``` bash
 # install dependencies
