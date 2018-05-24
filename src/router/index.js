@@ -25,5 +25,13 @@ export default new Router({
     path: '/login',
     name: 'login',
     component: resolve => require(['@/views/Login.vue'], resolve)
+  }, {
+    path: '/404',
+    name: '404',
+    component: resolve => require(['@/views/404.vue'], resolve)
+  }, {
+    path: '/403',
+    name: '403',
+    component: resolve => require(['@/views/403.vue'], resolve)
   }]
 })
