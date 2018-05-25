@@ -35,6 +35,7 @@ export default {
 .el-main {
 	height: calc(100vh - 60px - 62px);
 	overflow-y: auto;
+	background-color: #f7f7f7;
 	&::-webkit-scrollbar {
     display: none;
   }

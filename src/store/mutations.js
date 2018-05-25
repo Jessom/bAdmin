@@ -1,7 +1,8 @@
-import { HIDE_LOADING, SHOW_LOADING } from './types'
+import { HIDE_LOADING, SHOW_LOADING, SET_LOADING_TEXT } from './types'
 
 const state = {
-	loading: false
+	loading: false,
+	loadingText: ''
 }
 
 const mutations = {
@@ -10,6 +11,9 @@ const mutations = {
 	},
 	[SHOW_LOADING](state) {
 		state.loading = true
+	},
+	[SET_LOADING_TEXT](state, text) {
+		state.loadingText = text
 	}
 }
 

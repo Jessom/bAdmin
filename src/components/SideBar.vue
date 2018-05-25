@@ -41,7 +41,7 @@ export default {
   },
 	methods: {
     handleSelect(key, keyPath) {
-      this.$router.push({ path: `${key}` })
+      this.$router.replace({ path: `${key}` })
     }
 	}
 }
