@@ -20,6 +20,10 @@ export default new Router({
       path: '/article',
       name: 'article',
       component: resolve => require(['@/views/Article.vue'], resolve)
+    }, {
+      path: '/editor/:id',
+      name: 'editor',
+      component: resolve => require(['@/views/Editor.vue'], resolve)
     }]
   }, {
     path: '/login',

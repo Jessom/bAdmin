@@ -47,7 +47,11 @@ export default {
 	},
 	watch: {
 		value(val, oldVal) {
-			console.log(val)
+			this.$store.commit('SHOW_LOADING')
+			this.$store.commit('SET_LOADING_TEXT', '请稍后...')
+			setTimeout(() => {
+				this.$store.commit('HIDE_LOADING')
+			}, 1500)
 		}
 	},
 	props: {
