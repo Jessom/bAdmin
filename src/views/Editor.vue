@@ -77,7 +77,7 @@ export default {
 </script>
 
 <style lang='scss'>
-.editor-wrap {
-	height: 100%;
+.v-note-panel {
+	max-height: 100%;
 }
 </style>
