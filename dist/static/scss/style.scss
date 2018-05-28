@@ -1,0 +1,33 @@
+@import './_resect-el.scss';
+.text-center { text-align: center; }
+.text-right { text-align: right; }
+.text-left { text-align: left; }
+
+.pull-right { float: right; }
+.pull-left { float: left; }
+
+.size40 { font-size: 40px; }
+
+.success-color { color: $success; }
+.warning-color { color: $warning; }
+.danger-color { color: $danger; }
+.info-color { color: $info; }
+.blue-color { color: $blue; }
+
+.clearfix {
+	&::before, &::after {
+		display: table;
+		content: '';
+	}
+	&::after {
+		clear: both;
+	}
+}
+
+.container {
+	background-color: #fff;
+	border-radius: 5px;
+	padding: 15px 30px;
+	border: 1px solid #e6e6e6;
+	box-sizing: border-box;
+}
