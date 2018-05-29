@@ -71,8 +71,8 @@ export default {
 			}],
 			handler: [{
 				label: '编辑',
-				event(obj) {
-					console.log(obj)
+				event: (obj) => {
+					this.$router.push({ path: `editor/${obj.id}` })
 				}
 			}, {
 				label: '删除',

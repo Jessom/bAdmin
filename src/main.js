@@ -2,17 +2,18 @@ import Vue from 'vue'
 import router from './router'
 import App from './App'
 import { PROGRESS_CONF } from './config'
-
-// element ui
 import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
-// vuex
 import store from './store'
-// vue progress bar
 import VueProgressBar from 'vue-progressbar'
+import VeLine from 'v-charts/lib/line'
+import axios from 'axios'
+import VueAxios from 'vue-axios'
 
-Vue.use(VueProgressBar, PROGRESS_CONF)
+Vue.component(VeLine.name, VeLine)
 Vue.use(ElementUI)
+Vue.use(VueProgressBar, PROGRESS_CONF)
+Vue.use(VueAxios, axios)
 
 Vue.config.productionTip = false
 

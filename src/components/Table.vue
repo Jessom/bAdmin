@@ -26,7 +26,7 @@
 			v-if='handler.length'
       fixed="right"
       label="操作"
-      width="100">
+      width="180">
       <template slot-scope="scope">
         <el-button v-for='(item, ind) in handler' :key='ind' @click="item.event(scope.row)" type="text" size="small">{{item.label}}</el-button>
       </template>

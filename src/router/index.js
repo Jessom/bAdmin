@@ -24,6 +24,18 @@ export default new Router({
       path: '/editor/:id',
       name: 'editor',
       component: resolve => require(['@/views/Editor.vue'], resolve)
+    }, {
+      path: '/users',
+      name: 'users',
+      component: resolve => require(['@/views/Users.vue'], resolve)
+    }, {
+      path: '/message',
+      name: 'message',
+      component: resolve => require(['@/views/Message.vue'], resolve)
+    }, {
+      path: '/power',
+      name: 'power',
+      component: resolve => require(['@/views/Power.vue'], resolve)
     }]
   }, {
     path: '/login',

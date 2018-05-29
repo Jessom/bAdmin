@@ -23,6 +23,18 @@
         <i class="el-icon-document"></i>
         <span slot='title'>Article</span>
       </el-menu-item>
+      <el-menu-item index='/users'>
+        <i class="el-icon-document"></i>
+        <span slot='title'>用户管理</span>
+      </el-menu-item>
+      <el-menu-item index='/message'>
+        <i class="el-icon-document"></i>
+        <span slot='title'>消息管理</span>
+      </el-menu-item>
+      <el-menu-item index='/power'>
+        <i class="el-icon-document"></i>
+        <span slot='title'>权限管理</span>
+      </el-menu-item>
     </el-menu>
 	</el-aside>
 </template>
