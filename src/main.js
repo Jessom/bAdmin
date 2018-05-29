@@ -14,6 +14,13 @@ Vue.component(VeLine.name, VeLine)
 Vue.use(ElementUI)
 Vue.use(VueProgressBar, PROGRESS_CONF)
 Vue.use(VueAxios, axios)
+axios.interceptors.response.use(response => {
+	let data = response.data
+	if (typeof data === 'string') {
+		data = JSON.parse(data)
+	}
+	return data
+})
 
 Vue.config.productionTip = false
 

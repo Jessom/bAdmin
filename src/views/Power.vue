@@ -2,12 +2,71 @@
 	<div class="container">
 		<v-top-bar
 			:btns='topbar.btns' />
+		<!-- 主要数据 -->
+		<el-table
+			:data="powerList"
+			border
+			style="width: 100%">
+			<el-table-column
+				type="selection"
+				fixed
+				width="55">
+			</el-table-column>
+			<el-table-column
+				prop="name"
+				label="管理员"
+				width="120">
+			</el-table-column>
+			<el-table-column
+				prop="account"
+				label="账号"
+				width="220">
+			</el-table-column>
+			<el-table-column
+				prop="power"
+				label="权限"
+				width="220">
+				<template slot-scope="scope">
+					<el-tag
+						:type="scope.row.power === 9 ? 'error' : 'success'"
+						disable-transitions>{{scope.row.power===9?'超级管理员':'管理员'}}</el-tag>
+				</template>
+			</el-table-column>
+			<el-table-column
+				prop="time"
+				label="添加时间"
+				width="180">
+			</el-table-column>
+			<el-table-column
+				prop="status"
+				label="状态"
+				width="180">
+				<template slot-scope="scope">
+					<el-tag
+						:type="scope.row.status === 0 ? 'error' : 'success'"
+						disable-transitions>{{scope.row.status===0?'禁用':'正常'}}</el-tag>
+				</template>
+			</el-table-column>
+			<el-table-column
+				fixed="right"
+				label="操作"
+				width="120">
+				<template slot-scope="scope">
+					<el-button
+						type="text"
+						@click='handlePower(scope.row)'
+						size="small">
+						编辑权限
+					</el-button>
+				</template>
+			</el-table-column>
+		</el-table>		<!-- 主要数据 -->
 		<!-- 弹出权限框 -->
 		<el-dialog
 			:title="dialog.title"
 			:visible.sync="dialog.dialogVisible">
 			<el-transfer
-				v-model="transfer.sele"
+				v-model="transfer.selected"
 				:data="transfer.data"
 				:titles="['未选权限', '已选权限']">
 			</el-transfer>
@@ -40,7 +99,29 @@ export default {
 					type: 'success',
 					event: obj => {}
 				}]
+			},
+			// 表格数据
+			powerList: []
+		}
+	},
+	created() {
+		this.getPowers()
+	},
+	methods: {
+		async getPowers() {
+			try {
+				const res = await this.axios(`static/data/power.json`)
+				this.powerList = res.powers
+				this.transfer.data = res.powerList
+			} catch (e) {
+				console.log(e)
 			}
+		},
+		// 编辑权限按钮
+		handlePower(e) {
+			this.dialog.dialogVisible = true
+			this.dialog.title = e.name
+			e.admin.menu.forEach(c => this.transfer.selected.push(c.key))
 		}
 	},
 	components: {
