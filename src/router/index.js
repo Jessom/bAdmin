@@ -19,11 +19,12 @@ export default new Router({
     }, {
       path: '/article',
       name: 'article',
-      component: resolve => require(['@/views/Article.vue'], resolve)
-    }, {
-      path: '/editor/:id',
-      name: 'editor',
-      component: resolve => require(['@/views/Editor.vue'], resolve)
+      component: resolve => require(['@/views/Article.vue'], resolve),
+      children: [{
+        path: 'editor/:id',
+        name: 'editor',
+        component: resolve => require(['@/views/Editor.vue'], resolve)
+      }]
     }, {
       path: '/users',
       name: 'users',
@@ -42,7 +43,7 @@ export default new Router({
     name: 'login',
     component: resolve => require(['@/views/Login.vue'], resolve)
   }, {
-    path: '/404',
+    path: '*',
     name: '404',
     component: resolve => require(['@/views/404.vue'], resolve)
   }, {

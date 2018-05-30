@@ -1,10 +1,11 @@
 <template>
 	<div class="top-bar clearfix">
-		<div class="pull-left">
+		<div class="pull-left" v-if='btns.length'>
 			<el-button
 				v-for='(item, ind) in btns'
 				:key='ind'
 				:type="item.type"
+				:disabled='item.disabled'
 				@click='item.event(item)'
 				plain
 				size="small">
@@ -13,9 +14,14 @@
 		</div>
 
 		<div class='pull-right'>
-			<el-select v-model="value" placeholder="请选择">
+			<el-input
+				v-model="searchVal"
+				@keyup.enter.native='onEnter'
+				v-if='search'
+				:placeholder="placeholder"></el-input>
+			<el-select v-model="value" placeholder="请选择" v-if='select.length'>
 				<el-option
-					v-for="item in options"
+					v-for="item in select"
 					:key="item.value"
 					:label="item.label"
 					:value="item.value">
@@ -30,38 +36,47 @@ export default {
 	data() {
 		return {
 			value: '',
-			options: [{
-				value: 'vuejs',
-				lable: 'vuejs'
-			}, {
-				value: 'nodejs',
-				lable: 'nodejs'
-			}, {
-				value: 'reactjs',
-				lable: 'reactjs'
-			}, {
-				value: 'angularjs',
-				lable: 'angularjs'
-			}]
+			searchVal: ''
 		}
 	},
 	watch: {
 		value(val, oldVal) {
-			this.$store.commit('SHOW_LOADING')
-			this.$store.commit('SET_LOADING_TEXT', '请稍后...')
-			setTimeout(() => {
-				this.$store.commit('HIDE_LOADING')
-			}, 1500)
+			this.$emit('onSelect', val)
+		}
+	},
+	methods: {
+		// 搜索框回车事件
+		onEnter() {
+			this.$emit('onEnter', this.searchVal)
 		}
 	},
 	props: {
-		btns: Array
+		btns: {
+			type: Array,
+			default: function() {
+				return []
+			}
+		},
+		select: {
+			type: Array,
+			default: function() {
+				return []
+			}
+		},
+		search: {
+			type: Boolean,
+			default: true
+		},
+		placeholder: String
 	}
 }
 </script>
 
-<style lang='scss'>
+<style lang='scss' scoped>
 .top-bar {
 	padding-bottom: 15px;
+}
+.el-input {
+	width: 170px;
 }
 </style>

@@ -3,13 +3,17 @@
 		<h1 class="error-code">
 			4<span class='zero'>0</span>4
 		</h1>
-		<el-button type='primary'>返回首页</el-button>
+		<el-button type='primary' @click='goHome'>返回首页</el-button>
 	</div>
 </template>
 
 <script>
 export default {
-
+	methods: {
+		goHome() {
+			this.$router.replace({path: `/`})
+		}
+	}
 }
 </script>
 

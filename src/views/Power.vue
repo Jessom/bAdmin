@@ -1,7 +1,9 @@
 <template>
 	<div class="container">
 		<v-top-bar
-			:btns='topbar.btns' />
+			placeholder='请输入管理员名称'
+			:btns='topbar.btns'
+			@onEnter='topbarSearch' />
 		<!-- 主要数据 -->
 		<el-table
 			:data="powerList"
@@ -43,7 +45,7 @@
 				width="180">
 				<template slot-scope="scope">
 					<el-tag
-						:type="scope.row.status === 0 ? 'error' : 'success'"
+						:type="scope.row.status === 0 ? 'danger' : 'success'"
 						disable-transitions>{{scope.row.status===0?'禁用':'正常'}}</el-tag>
 				</template>
 			</el-table-column>
@@ -71,16 +73,27 @@
 				:titles="['未选权限', '已选权限']">
 			</el-transfer>
 		</el-dialog> 		<!-- 弹出权限框 -->
+		<!-- 分页 -->
+		<div class="page-wrap">
+			<el-pagination
+				background
+				@current-change="handlePageCurrent"
+				layout="prev, pager, next"
+				:total="page.total">
+			</el-pagination>
+		</div>		<!-- 分页 -->
 	</div>
 </template>
 
 <script>
 import vTopBar from '@/components/TopBar.vue'
-import Pagination from '@/components/Pagination.vue'
 export default {
 	name: 'Dashboard',
 	data() {
 		return {
+			page: {
+				total: 0
+			},
 			// 弹出框配置
 			dialog: {
 				dialogVisible: false,
@@ -113,6 +126,7 @@ export default {
 				const res = await this.axios(`static/data/power.json`)
 				this.powerList = res.powers
 				this.transfer.data = res.powerList
+				this.page.total = res.total
 			} catch (e) {
 				console.log(e)
 			}
@@ -122,10 +136,17 @@ export default {
 			this.dialog.dialogVisible = true
 			this.dialog.title = e.name
 			e.admin.menu.forEach(c => this.transfer.selected.push(c.key))
+		},
+		// topbar搜索事件
+		topbarSearch(val) {
+			console.log(val)
+		},
+		// 切换页面
+		handlePageCurrent(val) {
+			console.log(val)
 		}
 	},
 	components: {
-		Pagination,
 		vTopBar
 	}
 }

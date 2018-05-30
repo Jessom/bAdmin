@@ -24,11 +24,11 @@
         <span slot='title'>Article</span>
       </el-menu-item>
       <el-menu-item index='/users'>
-        <i class="el-icon-document"></i>
+        <i class="iconfont icon-user-group"></i>
         <span slot='title'>用户管理</span>
       </el-menu-item>
       <el-menu-item index='/message'>
-        <i class="el-icon-document"></i>
+        <i class="iconfont icon-ai-message"></i>
         <span slot='title'>消息管理</span>
       </el-menu-item>
       <el-menu-item index='/power'>
@@ -48,7 +48,7 @@ export default {
 	},
   computed: {
     onRoute() {
-      return this.$route.path
+      return `/${this.$route.path.split('/')[1]}`
     }
   },
 	methods: {
@@ -59,7 +59,7 @@ export default {
 }
 </script>
 
-<style lang='scss'>
+<style lang='scss' scope>
 @import 'static/scss/_variable.scss';
 .side-right-bar {
   &>.el-menu {
@@ -83,5 +83,12 @@ export default {
       }
     }
   }
+}
+.iconfont {
+  margin-right: 5px;
+  width: 24px;
+  text-align: center;
+  font-size: 18px;
+  vertical-align: middle;
 }
 </style>

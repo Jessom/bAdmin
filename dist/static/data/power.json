@@ -1,0 +1,79 @@
+{
+	"total": 3,
+	"powers": [{
+		"id": 1,
+		"account": "jessoncheung@gmail.com",
+		"name": "张勇",
+		"time": "2018-05-29 18:46:25",
+		"status": 1,
+		"power": 9,
+		"admin": {
+			"menu": [{
+				"key": 3,
+				"label": "消息管理",
+				"url": "/message"
+			}, {
+				"key": 4,
+				"label": "普通用户",
+				"url": "/users"
+			}, {
+				"key": 2,
+				"label": "权限管理",
+				"url": "/power"
+			}]
+		}
+	}, {
+		"id": 2,
+		"account": "18888888888",
+		"name": "李四",
+		"time": "2018-05-30 12:35:47",
+		"status": 1,
+		"power": 8,
+		"admin": {
+			"menu": [{
+				"key": 3,
+				"label": "消息管理",
+				"url": "/message"
+			}, {
+				"key": 4,
+				"label": "普通用户",
+				"url": "/users"
+			}]
+		}
+	}, {
+		"id": 3,
+		"account": "857477061@qq.com",
+		"name": "李四",
+		"time": "2018-05-31 08:59:46",
+		"status": 1,
+		"power": 8,
+		"admin": {
+			"menu": [{
+				"key": 3,
+				"label": "消息管理",
+				"url": "/message"
+			}, {
+				"key": 4,
+				"label": "普通用户",
+				"url": "/users"
+			}]
+		}
+	}],
+	"powerList": [{
+		"key": 1,
+		"label": "文章管理",
+		"url": "/article"
+	}, {
+		"key": 2,
+		"label": "权限管理",
+		"url": "/power"
+	}, {
+		"key": 3,
+		"label": "消息管理",
+		"url": "/message"
+	}, {
+		"key": 4,
+		"label": "普通用户",
+		"url": "/users"
+	}]
+}

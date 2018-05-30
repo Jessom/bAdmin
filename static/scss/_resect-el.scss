@@ -5,3 +5,8 @@
 .el-aside {
 	background-color: $baseColor;
 }
+.el-table--scrollable-x .el-table__body-wrapper, .el-table__body {
+	&::-webkit-scrollba {
+		display: none;
+	}
+}
