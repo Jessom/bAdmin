@@ -16,12 +16,16 @@
 			:collapse="isCollapse"
 			active-text-color="#ffd04b">
       <el-menu-item index='/dashboard'>
-        <i class="el-icon-menu"></i>
-        <span slot='title'>Dashboard</span>
+        <i class="iconfont icon-yibiaopan"></i>
+        <span slot='title'>仪表盘</span>
       </el-menu-item>
       <el-menu-item index='/article'>
-        <i class="el-icon-document"></i>
-        <span slot='title'>Article</span>
+        <i class="iconfont icon-wenzhang"></i>
+        <span slot='title'>文章</span>
+      </el-menu-item>
+      <el-menu-item index='/types'>
+        <i class="iconfont icon-17"></i>
+        <span slot='title'>文章类型</span>
       </el-menu-item>
       <el-menu-item index='/users'>
         <i class="iconfont icon-user-group"></i>
@@ -32,7 +36,7 @@
         <span slot='title'>消息管理</span>
       </el-menu-item>
       <el-menu-item index='/power'>
-        <i class="el-icon-document"></i>
+        <i class="iconfont icon-setting-permissions"></i>
         <span slot='title'>权限管理</span>
       </el-menu-item>
     </el-menu>
@@ -48,7 +52,8 @@ export default {
 	},
   computed: {
     onRoute() {
-      return `/${this.$route.path.split('/')[1]}`
+      let actived = this.$route.meta.actived ? this.$route.meta.actived : `/${this.$route.path.split('/')[1]}`
+      return actived
     }
   },
 	methods: {

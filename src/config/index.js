@@ -1,5 +1,5 @@
 export const PROGRESS_CONF = {
-	color: '#E4E7ED',
+	color: '#67C23A',
   failedColor: '#874b4b',
   thickness: '2px',
   transition: {

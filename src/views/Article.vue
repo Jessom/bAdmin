@@ -51,7 +51,7 @@
 			<el-table-column
 				prop="atime"
 				label="添加时间"
-				width="180">
+				min-width="180">
 			</el-table-column>
 			<el-table-column
 				fixed="right"
@@ -150,7 +150,7 @@ export default {
 		// 操作按钮点击事件
 		handle(tag, obj) {
 			if(tag === 0) {
-				this.$router.push({path: `article/editor/${obj.id}`})
+				this.$router.push({path: `/editor/${obj.id}`})
 			} else if(tag === 1) {
 				this.disabledOne(obj)
 			} else if(tag === 2) {

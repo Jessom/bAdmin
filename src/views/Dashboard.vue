@@ -1,7 +1,7 @@
 <template>
 	<div>
 		<el-row :gutter="20">
-			<el-col :xs="24" :sm="12" :md="6" :lg="6" :xl="1" class='item'>
+			<el-col :xs="24" :sm="12" :md="6" :lg="6" :xl="6" class='item'>
 				<router-link to='/users'>
 					<el-card shadow="hover">
 						<el-col :span='12'>
@@ -14,7 +14,7 @@
 					</el-card>
 				</router-link>
 			</el-col>
-			<el-col :xs="24" :sm="12" :md="6" :lg="6" :xl="1" class='item'>
+			<el-col :xs="24" :sm="12" :md="6" :lg="6" :xl="6" class='item'>
 				<router-link to='/message'>
 					<el-card shadow="hover">
 						<el-col :span='12'>
@@ -27,7 +27,7 @@
 					</el-card>
 				</router-link>
 			</el-col>
-			<el-col :xs="24" :sm="12" :md="6" :lg="6" :xl="1" class='item'>
+			<el-col :xs="24" :sm="12" :md="6" :lg="6" :xl="6" class='item'>
 				<router-link to='/article'>
 					<el-card shadow="hover">
 						<el-col :span='12'>
@@ -40,7 +40,7 @@
 					</el-card>
 				</router-link>
 			</el-col>
-			<el-col :xs="24" :sm="12" :md="6" :lg="6" :xl="1" class='item'>
+			<el-col :xs="24" :sm="12" :md="6" :lg="6" :xl="6" class='item'>
 				<router-link to='/article'>
 					<el-card shadow="hover">
 						<el-col :span='12'>

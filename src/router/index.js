@@ -6,49 +6,69 @@ Vue.use(Router)
 export default new Router({
   routes: [{
     path: '/',
-    name: 'index',
-    component: resolve => require(['@/views/Main.vue'], resolve),
-    meta: {
-			title: '首页'
-    },
-    redirect: {name: 'dashboard'},
+    component: () => import('@/views/Main.vue'),
+    redirect: { path: '/dashboard' },
     children: [{
       path: '/dashboard',
-      name: 'dashboard',
-      component: resolve => require(['@/views/Dashboard.vue'], resolve)
+      meta: {
+        title: '首页 | わタしAdmin'
+      },
+      component: () => import('@/views/Dashboard.vue')
     }, {
       path: '/article',
-      name: 'article',
-      component: resolve => require(['@/views/Article.vue'], resolve),
-      children: [{
-        path: 'editor/:id',
-        name: 'editor',
-        component: resolve => require(['@/views/Editor.vue'], resolve)
-      }]
+      meta: {
+        title: '文章管理 | わタしAdmin'
+      },
+      component: () => import('@/views/Article.vue')
     }, {
       path: '/users',
-      name: 'users',
-      component: resolve => require(['@/views/Users.vue'], resolve)
+      meta: {
+        title: '用户管理 | わタしAdmin'
+      },
+      component: () => import('@/views/Users.vue')
     }, {
       path: '/message',
-      name: 'message',
-      component: resolve => require(['@/views/Message.vue'], resolve)
+      meta: {
+        title: '消息管理 | わタしAdmin'
+      },
+      component: () => import('@/views/Message.vue')
     }, {
       path: '/power',
-      name: 'power',
-      component: resolve => require(['@/views/Power.vue'], resolve)
+      meta: {
+        title: '权限管理 | わタしAdmin'
+      },
+      component: () => import('@/views/Power.vue')
+    }, {
+      path: '/types',
+      meta: {
+        title: '文章类型 | わタしAdmin'
+      },
+      component: () => import('@/views/Types.vue')
+    }, {
+      path: '/editor/:id',
+      meta: {
+        title: '编辑文章 | わタしAdmin',
+        actived: '/article'
+      },
+      component: () => import('@/views/Editor.vue')
     }]
   }, {
     path: '/login',
-    name: 'login',
-    component: resolve => require(['@/views/Login.vue'], resolve)
+    meta: {
+      title: '登录 | わタしAdmin'
+    },
+    component: () => import('@/views/Login.vue')
   }, {
     path: '*',
-    name: '404',
-    component: resolve => require(['@/views/404.vue'], resolve)
+    meta: {
+      title: '404 | わタしAdmin'
+    },
+    component: () => import('@/views/404.vue')
   }, {
     path: '/403',
-    name: '403',
-    component: resolve => require(['@/views/403.vue'], resolve)
+    meta: {
+      title: '403 | わタしAdmin'
+    },
+    component: () => import('@/views/403.vue')
   }]
 })
