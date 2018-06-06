@@ -85,6 +85,14 @@ export default {
 			}
 		}
 	},
+	created() {
+		this.$http.get(`/api/json`)
+			.then(res => {
+				console.log(res)
+			}).catch(err => {
+				console.log(err)
+			})
+	},
 	components: {
 		LineChart
 	}
