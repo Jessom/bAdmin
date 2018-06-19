@@ -6,5 +6,8 @@ export default {
 	},
 	showLoading: ({commit}) => {
 		commit(types.SHOW_LOADING)
+	},
+	setToken: ({commit}, token) => {
+		commit(types.SET_TOKEN, token)
 	}
 }
