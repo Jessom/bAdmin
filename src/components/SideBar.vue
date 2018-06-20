@@ -4,7 +4,7 @@
     class='side-right-bar'>
     <div class="logo-container">
       <router-link class='logo-wrap' to='/'>
-        <img src="http://p94agf1t4.bkt.clouddn.com/images/logo2.png" class="logo" alt="">
+        <img src="http://p94agf1t4.bkt.clouddn.com/images/logo.png" class="logo" alt="">
       </router-link>
     </div>
 		<el-menu

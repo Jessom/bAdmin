@@ -1,4 +1,4 @@
-<p align="center"><a href="http://watasi.cn" target="_blank" rel="noopener noreferrer"><img src="http://p94agf1t4.bkt.clouddn.com/images/logo2.png" alt="Watasi logo"></a></p>
+<p align="center"><a href="http://watasi.cn" target="_blank" rel="noopener noreferrer"><img src="http://p94agf1t4.bkt.clouddn.com/images/logo.png" alt="Watasi logo"></a></p>
 
 ## 项目简介
 个人的一个即兴小项目，目的在于熟悉`vue`、`vuex`、`vue-router`等的使用，后期会作为个人博客后台管理使用
