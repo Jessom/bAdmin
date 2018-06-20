@@ -12,7 +12,7 @@
 export default {
 	methods: {
 		test() {
-			this.$axios.post('/api/admin/login', {
+			this.$axios.post('/admin/login', {
 				'account': 'jessoncheung@gmail.com',
 				'password': 'e10adc3949ba59abbe56e057f20f883e'
 			}).then(res => {
@@ -23,7 +23,7 @@ export default {
 			})
 		},
 		add() {
-			this.$axios.post('/api/admin/addtype', {
+			this.$axios.post('/admin/addtype', {
 				'title': 'JavaScript',
 				'desc': 'js相关内容'
 			}).then(res => {

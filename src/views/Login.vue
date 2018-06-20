@@ -55,7 +55,7 @@ export default {
 			this.$refs[formName].validate(async (valid) => {
 				if (valid) {
 					this.$store.commit('SHOW_LOADING')
-					const res = await this.$axios.post('/api/admin/login', { account: this.loginForm.account, password: md5(this.loginForm.password) })
+					const res = await this.$axios.post('/admin/login', { account: this.loginForm.account, password: md5(this.loginForm.password) })
 					if(res.status === 1) {
 						this.$store.commit('SET_TOKEN', res.token)
 						this.$router.push({ path: '/dashboard' })

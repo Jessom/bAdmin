@@ -12,13 +12,16 @@ import axios from 'axios'
 // import { HIDE_LOADING } from '@/store/types'
 Vue.component(VeLine.name, VeLine)
 Vue.use(ElementUI)
-if(store.state.mutations.token) {
-	axios.defaults.headers.common['Authorization'] = store.state.mutations.token
-}
-axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded'
 Vue.use(VueProgressBar, PROGRESS_CONF)
 Vue.prototype.$axios = axios
-
+axios.interceptors.request.use(config => {
+	console.log(config)
+	if(store.state.mutations.token) {
+		config.headers['Authorization'] = store.state.mutations.token
+	}
+	config.headers['Content-Type'] = 'application/json'
+	return config
+})
 router.beforeEach((to, from, next) => {
 	if(to.path !== '/login') {
 		if(store.state.mutations.token) {
@@ -47,6 +50,7 @@ const app = new Vue({
 
 axios.interceptors.response.use(response => {
 	let data = response.data
+	console.log(response)
 	store.commit('HIDE_LOADING')
 	if(data.status === 403 || data.status === 401) {
 		router.push({ path: '/login' })
@@ -57,4 +61,7 @@ axios.interceptors.response.use(response => {
 		})
 	}
 	return data
+}, err => {
+	console.log(err)
+	return Promise.reject(err)
 })
